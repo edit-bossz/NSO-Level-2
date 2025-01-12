@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Book Reader</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            max-width: 800px;
+            background: white;
+            text-align: center;
+        }
+
+        .page {
+            display: none;
+            height: 100%;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .page img {
+            max-height: 100%;
+            width: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+            transition: background 0.3s;
+            z-index: 10;
+        }
+
+        .nav-button:hover {
+            background: #0056b3;
+        }
+
+        .nav-button.left {
+            left: 10px;
+        }
+
+        .nav-button.right {
+            right: 10px;
+        }
+
+        .controls {
+    position: absolute;
+    top: 10px; /* Move to the top */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    display: flex;
+    gap: 5px; /* Reduce spacing between elements */
+    align-items: center;
+    border-radius: 5px; /* Slightly rounded corners */
+    font-size: 12px; /* Smaller text */
+}
+
+.controls input, .controls select {
+    padding: 2px 5px; /* Smaller padding for input and dropdown */
+    font-size: 12px; /* Smaller text size */
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation Buttons -->
+        <button class="nav-button left" onclick="changePage(-1)">❮</button>
+        <button class="nav-button right" onclick="changePage(1)">❯</button>
+
+        <!-- Pages -->
+        <div class="page active"><img src="NSO Level 2 Class 7_Page_01.jpg" alt="Page 1"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_02.jpg" alt="Page 2"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_03.jpg" alt="Page 3"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_04.jpg" alt="Page 4"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_05.jpg" alt="Page 5"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_06.jpg" alt="Page 6"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_07.jpg" alt="Page 7"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_08.jpg" alt="Page 8"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_09.jpg" alt="Page 9"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_10.jpg" alt="Page 10"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_11.jpg" alt="Page 11"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_12.jpg" alt="Page 12"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_13.jpg" alt="Page 13"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_14.jpg" alt="Page 14"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_15.jpg" alt="Page 15"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_16.jpg" alt="Page 16"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_17.jpg" alt="Page 17"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_18.jpg" alt="Page 18"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_19.jpg" alt="Page 19"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_20.jpg" alt="Page 20"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_21.jpg" alt="Page 21"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_22.jpg" alt="Page 22"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_23.jpg" alt="Page 23"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_24.jpg" alt="Page 24"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_25.jpg" alt="Page 25"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_26.jpg" alt="Page 26"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_27.jpg" alt="Page 27"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_28.jpg" alt="Page 28"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_29.jpg" alt="Page 29"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_30.jpg" alt="Page 30"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_31.jpg" alt="Page 31"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_32.jpg" alt="Page 32"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_33.jpg" alt="Page 33"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_34.jpg" alt="Page 34"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_35.jpg" alt="Page 35"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_36.jpg" alt="Page 36"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_37.jpg" alt="Page 37"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_38.jpg" alt="Page 38"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_39.jpg" alt="Page 39"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_40.jpg" alt="Page 40"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_41.jpg" alt="Page 41"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_42.jpg" alt="Page 42"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_43.jpg" alt="Page 43"></div>
+        <div class="page"><img src="NSO Level 2 Class 7_Page_44.jpg" alt="Page 44"></div>
+        <!-- Repeat for all 44 pages -->
+
+        <!-- Controls -->
+        <div class="controls">
+            <label for="pageNo">Page No:</label>
+            <input type="number" id="pageNo" min="1" max="44" value="1" onchange="goToPage(this.value - 1)">
+            
+            <label for="pageSelect">Select Page:</label>
+            <select id="pageSelect" onchange="goToPage(this.value)">
+                <!-- Generate options dynamically -->
+                <script>
+                    for (let i = 0; i < 44; i++) {
+                        document.write(`<option value="${i}">Page ${i + 1}</option>`);
+                    }
+                </script>
+            </select>
+        </div>
+    </div>
+
+    <script>
+        const pages = document.querySelectorAll('.page');
+        const pageNoInput = document.getElementById('pageNo');
+        const pageSelect = document.getElementById('pageSelect');
+        let currentPage = 0;
+
+        // Function to change the page
+        function changePage(direction) {
+            // Hide the current page
+            pages[currentPage].classList.remove('active');
+
+            // Update the current page index
+            currentPage += direction;
+
+            // Ensure the page index is within bounds
+            if (currentPage < 0) currentPage = 0;
+            if (currentPage >= pages.length) currentPage = pages.length - 1;
+
+            // Show the new page
+            pages[currentPage].classList.add('active');
+
+            // Update the input box and dropdown
+            pageNoInput.value = currentPage + 1;
+            pageSelect.value = currentPage;
+        }
+
+        // Function to go to a specific page
+        function goToPage(pageIndex) {
+            // Ensure the page index is within bounds
+            if (pageIndex < 0) pageIndex = 0;
+            if (pageIndex >= pages.length) pageIndex = pages.length - 1;
+
+            // Hide the current page
+            pages[currentPage].classList.remove('active');
+
+            // Update the current page index
+            currentPage = parseInt(pageIndex);
+
+            // Show the new page
+            pages[currentPage].classList.add('active');
+
+            // Update the input box and dropdown
+            pageNoInput.value = currentPage + 1;
+            pageSelect.value = currentPage;
+        }
+    </script>
+</body>
+</html>
